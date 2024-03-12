@@ -1,35 +1,40 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Tabs } from "expo-router";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: "pink",
-        header: (props) => <Text>{props.route.name}</Text>,
-        tabBarLabel: (props) => (
-          <Text style={{ opacity: props.focused ? 100 : 0 }}>
-            {props.children}
-          </Text>
-        ),
+        tabBarActiveTintColor: "#E37A82",
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="routes"
         options={{
-          title: "Home",
+          title: "Routes",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
+            <FontAwesome size={22} name="list" color={color} />
           ),
+          headerShown: false,
         }}
       />
       <Tabs.Screen
-        name="settings"
+        name="newRoute"
         options={{
-          title: "Settings",
+          title: "New Route",
           tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
+            <FontAwesome size={22} name="plus-square" color={color} />
+          ),
+          headerTitle: "Create a New Route",
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome size={22} name="user" color={color} />
           ),
         }}
       />
